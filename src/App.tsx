@@ -6,6 +6,8 @@ import Groups from "./pages/Groups/Groups";
 import Layout from "./Layout/Layout";
 import GroupsCreate from "./pages/Groups/GroupsCreate";
 import Login from "./pages/Login/Login";
+import RemindPassword from "./pages/RemindPassword/RemindPassword";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
                 <Route path='groups/create' element={<GroupsCreate/>}/>
             </Route>
             <Route path='login' element={<Login/>}/>
+            <Route path='resetpassword' element={<ResetPassword/>}/>
+            <Route path='remindpassword' element={<RemindPassword/>}/>
         </Routes>
 
     </div>

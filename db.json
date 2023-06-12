@@ -1,3 +1,52 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "name": "asdasd",
+      "email" : "",
+      "password": ""
+    }
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 2,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 3,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 4,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 5,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 6,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 7,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 8,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 9,
+      "title" : "TypeScript"
+    },
+    {
+      "id": 10,
+      "title" : "TypeScript"
+    }
+  ]
 }
