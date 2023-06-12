@@ -1,0 +1,34 @@
+.header{
+
+  &__nav{
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #5867DD ;
+  }
+  &__left{
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+  }
+  &__link{
+    color: #A5A5A5;
+    &:hover{
+      color: #000000;
+    }
+  }
+  &__right{
+    display: flex;
+    column-gap: 10px;
+    align-items: flex-start;
+  }
+  &__acc{
+    color: #000000;
+
+  }
+  &__logout{
+    cursor: pointer;
+
+  }
+}

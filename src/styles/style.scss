@@ -1,0 +1,30 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  resize: none;
+  font-family: 'Roboto',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  transition: .3s;
+}
+
+button{
+  cursor: pointer;
+}
+
+img{
+  object-fit: cover;
+}
+
+.container{
+  max-width: 1200px;
+  margin:  0 auto;
+}
+
+@import "login";
+@import "header";
+@import "groups";
