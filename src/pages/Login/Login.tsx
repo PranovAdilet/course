@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const Login = () => {
     return (
@@ -20,18 +21,18 @@ const Login = () => {
                 <label  className='login__label'>
 
                     <span className='login__label-icon'>
-<svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="8.5" y="14" width="2" height="5" rx="1" fill="#222222"/>
-<rect x="1" y="10.167" width="17" height="12.8333" rx="3" stroke="#222222" strokeWidth="2"/>
-<path d="M14 10H15V9V6.5C15 3.46243 12.5376 1 9.5 1C6.46243 1 4 3.46243 4 6.5V9V10H5H14Z" stroke="#222222" strokeWidth="2"/>
-</svg>
+                        <svg width="19" height="24" viewBox="0 0 19 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8.5" y="14" width="2" height="5" rx="1" fill="#222222"/>
+                        <rect x="1" y="10.167" width="17" height="12.8333" rx="3" stroke="#222222" strokeWidth="2"/>
+                        <path d="M14 10H15V9V6.5C15 3.46243 12.5376 1 9.5 1C6.46243 1 4 3.46243 4 6.5V9V10H5H14Z" stroke="#222222" strokeWidth="2"/>
+                    </svg>
 
                     </span>
 
                     <input placeholder='Введите ваш пароль' className='login__field' type="password"/>
                 </label>
                 <div className='login__bot'>
-                    <p className='login__forgot'>Забыли пароль?</p>
+                    <Link to={"/remindpassword"} className='login__forgot'>Забыли пароль?</Link>
                     <button className='login__btn'>Войти</button>
                 </div>
 
