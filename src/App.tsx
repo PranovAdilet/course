@@ -8,8 +8,12 @@ import GroupsCreate from "./pages/Groups/GroupsCreate";
 import Login from "./pages/Login/Login";
 import RemindPassword from "./pages/RemindPassword/RemindPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+
 import User from "./pages/Users/User";
 import CreateUsers from "./pages/CreateUser/CreateUsers";
+
+import FulfilledRemind from "./pages/RemindPassword/FulfilledRemind";
+
 
 function App() {
   return (
@@ -25,7 +29,11 @@ function App() {
             <Route path='login' element={<Login/>}/>
             <Route path='resetpassword' element={<ResetPassword/>}/>
             <Route path='remindpassword' element={<RemindPassword/>}/>
+
             <Route path='user/create' element={<CreateUsers/>}/>
+
+            <Route path='fulfilledremind' element={<FulfilledRemind/>}/>
+
         </Routes>
 
     </div>

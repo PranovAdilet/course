@@ -3,50 +3,60 @@
     {
       "id": 1,
       "name": "asdasd",
-      "email" : "",
+      "email": "",
       "password": ""
     }
   ],
   "groups": [
     {
       "id": 1,
-      "title" : "TypeScript"
+      "title": "TypeScript",
+      "students": ""
     },
     {
       "id": 2,
-      "title" : "TypeScript"
+      "title": "JavaScript",
+      "students": ""
     },
     {
       "id": 3,
-      "title" : "TypeScript"
+      "title": "HTML",
+      "students": ""
     },
     {
       "id": 4,
-      "title" : "TypeScript"
+      "title": "CSS",
+      "students": ""
     },
     {
       "id": 5,
-      "title" : "TypeScript"
+      "title": "PYTON",
+      "students": ""
     },
     {
       "id": 6,
-      "title" : "TypeScript"
+      "title": "JAVA",
+      "students": ""
     },
     {
       "id": 7,
-      "title" : "TypeScript"
+      "title": "C++",
+      "students": ""
     },
     {
       "id": 8,
-      "title" : "TypeScript"
+      "title": "С#",
+      "students": ""
     },
     {
       "id": 9,
-      "title" : "TypeScript"
+      "title": "PHP",
+      "students": ""
     },
     {
       "id": 10,
-      "title" : "TypeScript"
+      "title": "SQL",
+      "students": ""
     }
   ]
 }

@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";
+import {createGroup} from "../../redux/store/reducers/courses/courses";
+
 
 const GroupsCreate = () => {
 
     const navigate = useNavigate()
+
+    const [title, setTitle] = useState<string>('')
+
+    const dispatch = useAppDispatch()
 
     return (
         <section className='groupsCreate'>
@@ -16,16 +23,22 @@ const GroupsCreate = () => {
                     </span>
                     <span onClick={() => navigate(-1)}>Создание группы</span>
                 </div>
-                <form className='groupsCreate__form' action="">
+                <form onSubmit={(e) => {
+                    e.preventDefault()
+                        dispatch(createGroup(title))
+                         setTitle('')
+                }} className='groupsCreate__form' action="">
                     <label className='groupsCreate__label'>
-                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
+                        <input value={title} onChange={(e) => {
+                            setTitle(e.target.value)
+                        }} className='groupsCreate__input' placeholder='Название группы' type="text"/>
                     </label>
 
                     <label className='groupsCreate__label'>
                         <input className='groupsCreate__select ' placeholder='Добавить участников' type="text"/>
                     </label>
 
-                    <button className='groupsCreate__create'>Создать группу</button>
+                    <button type="submit" className='groupsCreate__create'>Создать группу</button>
                 </form>
             </div>
         </section>

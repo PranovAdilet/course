@@ -1,10 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {GrEdit} from 'react-icons/gr'
 import {MdOutlineCancelPresentation} from 'react-icons/md'
 import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {selectCourse} from "../../redux/reduxSelectors/reduxSelectors";
+import {getAllCourse, limitCourse} from "../../redux/store/reducers/courses/courses";
+import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";
+
 
 const Groups = () => {
+
+    const [typeGroups, setTypeGroups] = useState('all')
+
+    const {data, limit} = useSelector(selectCourse)
+
     const navigate = useNavigate()
+
+
+    const dispatch = useAppDispatch()
+    useEffect(() => {
+        dispatch(getAllCourse())
+    },[limit])
+
+
+
 
     return (
         <section className='groups'>
@@ -16,13 +35,13 @@ const Groups = () => {
 
                 <div className='groups__row'>
                     <div className="groups__menu">
-                        <button className='groups__btn active'>Все
-                            <span className='groups__btn-count'>8</span>
+                        <button onClick={() => setTypeGroups("all")} className={`groups__btn${typeGroups === "all" ? ` active` : ""}`}>Все
+                            <span className='groups__btn-count'>{data.length}</span>
                         </button>
-                        <button className='groups__btn'>Активные
+                        <button onClick={() => setTypeGroups("active")} className={`groups__btn${typeGroups === "active" ? ` active` : ""}`}>Активные
                             <span className='groups__btn-count'>5</span>
                         </button>
-                        <button className='groups__btn'>Архив
+                        <button onClick={() => setTypeGroups("archive")} className={`groups__btn${typeGroups === "archive" ? ` active` : ""}`}>Архив
                             <span className='groups__btn-count'>3</span>
                         </button>
                     </div>
@@ -30,54 +49,30 @@ const Groups = () => {
                 </div>
 
                 <div className='groups__content'>
-                    <div className="groups__item">
-                        <div className='groups__item-left'>
+                    {
+                        data.map((item) => (
+                           <React.Fragment key={item.id}>
+                               <div className="groups__item">
+                                   <div className='groups__item-left'>
                             <span className='groups__item-edit'>
                                 <GrEdit/>
                             </span>
-                            <h2 className='groups__item-title'>TypeScript 20:00</h2>
-                        </div>
-                        <span className='groups__item-delete'>
+                                       <h2 className='groups__item-title'>{item.title}</h2>
+                                   </div>
+                                   <span  className='groups__item-delete'>
                             <MdOutlineCancelPresentation/>
                         </span>
-                    </div>
-                    <div className="groups__item">
-                        <div className='groups__item-left'>
-                            <span className='groups__item-edit'>
-                                <GrEdit/>
-                            </span>
-                            <h2 className='groups__item-title'>TypeScript 20:00</h2>
-                        </div>
-                        <span className='groups__item-delete'>
-                            <MdOutlineCancelPresentation/>
-                        </span>
-                    </div>
-                    <div className="groups__item">
-                        <div className='groups__item-left'>
-                            <span className='groups__item-edit'>
-                                <GrEdit/>
-                            </span>
-                            <h2 className='groups__item-title'>TypeScript 20:00</h2>
-                        </div>
-                        <span className='groups__item-delete'>
-                            <MdOutlineCancelPresentation/>
-                        </span>
-                    </div>
-                    <div className="groups__item">
-                        <div className='groups__item-left'>
-                            <span className='groups__item-edit'>
-                                <GrEdit/>
-                            </span>
-                            <h2 className='groups__item-title'>TypeScript 20:00</h2>
-                        </div>
-                        <span className='groups__item-delete'>
-                            <MdOutlineCancelPresentation/>
-                        </span>
-                    </div>
+                               </div>
+                           </React.Fragment>
+                               ))
+
+                    }
                 </div>
 
                 <div className='groups__bottom'>
-                    <span className='groups__bottom-yet'>
+                    <span onClick={() => {
+                        dispatch(limitCourse(1))
+                    }} className='groups__bottom-yet'>
                         Показать еще
                     </span>
                     <div className='groups__bottom-right'>
