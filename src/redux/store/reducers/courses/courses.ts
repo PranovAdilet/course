@@ -12,7 +12,8 @@ export interface CoursesAsync {
     status: "loading"| "error" | "done" | null
     error : string | null,
     data: Course[],
-    limit: number | string
+    limit: number ,
+    filter: string
 }
 
 export const createGroup = createAsyncThunk(
@@ -41,11 +42,11 @@ export const createGroup = createAsyncThunk(
     }
 )
 
-export const getAllCourse = createAsyncThunk(
+export const getAllCourse = createAsyncThunk<Course[], number>(
     'coursesSlice/getAllCourse',
-    async (_ , rejectedWithValue) => {
+    async (limit , rejectedWithValue) => {
         try {
-            const response = await axios(` http://localhost:8080/groups?_limit=${initialState.limit}`)
+            const response = await axios(` http://localhost:8080/groups?_limit=${limit}`)
             if (response.statusText !== "OK"){
                 throw new Error('Ошибка при запросе данных')
             }
@@ -66,7 +67,8 @@ const initialState:CoursesAsync = {
     status: null,
     error: null,
     data: [],
-    limit: 4
+    limit: 4,
+    filter: 'all'
 }
 
 
@@ -75,8 +77,7 @@ export const coursesSlice = createSlice({
     initialState,
     reducers:{
         limitCourse: (state, action) => {
-            state.limit = 2
-
+            state.limit = 8
         }
     },
     extraReducers: (builder) => {
