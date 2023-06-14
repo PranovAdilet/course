@@ -1,0 +1,43 @@
+.users__filter{
+  background-color: #F2F2F2;
+  height: 60px;
+  border-radius: 5px;
+  &-ul{
+    display: flex;
+    padding: 20px;
+    column-gap: 200px;
+    margin-left: 60px;
+  }
+  &-li{
+    font-family: 'Roboto', sans-serif;
+
+    color: #A0A0A0;
+  }
+
+}
+
+.users__info{
+  display: flex;
+  column-gap: 70px;
+
+}
+
+.CreateUser__btns{
+  margin-top: 25px;
+  display: flex;
+  column-gap: 15px;
+  &-btn{
+    padding: 10px 18px;
+    border-radius: 5px;
+    border: 2px solid #5867DD;
+  }
+  &-circle{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+  }
+  &-text{
+    font-family: 'Roboto',sans-serif;
+    color: #14B855;
+  }
+}

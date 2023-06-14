@@ -8,6 +8,8 @@ import GroupsCreate from "./pages/Groups/GroupsCreate";
 import Login from "./pages/Login/Login";
 import RemindPassword from "./pages/RemindPassword/RemindPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
+import User from "./pages/Users/User";
+import CreateUsers from "./pages/CreateUser/CreateUsers";
 
 function App() {
   return (
@@ -15,12 +17,15 @@ function App() {
         <Routes>
             <Route path='/' element={<Layout/>}>
                 <Route path='' element={<Home/>}/>
+                <Route path='user' element={<User/>}/>
+
                 <Route path='groups' element={<Groups/>}/>
                 <Route path='groups/create' element={<GroupsCreate/>}/>
             </Route>
             <Route path='login' element={<Login/>}/>
             <Route path='resetpassword' element={<ResetPassword/>}/>
             <Route path='remindpassword' element={<RemindPassword/>}/>
+            <Route path='user/create' element={<CreateUsers/>}/>
         </Routes>
 
     </div>

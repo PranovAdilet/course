@@ -12,6 +12,7 @@ const Header = () => {
                 <nav className='header__nav'>
                     <div className='header__left'>
                         <Link className='header__link' to='/groups'>Группы</Link>
+                        <Link className='header__link' to='/user'>Пользователи</Link>
                     </div>
                     <div className='header__right'>
                         <Link className='header__acc' to='/groups'>maxbirimkulov@mail.ru</Link>
