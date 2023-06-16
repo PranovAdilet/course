@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 
 const RemindPassword = () => {

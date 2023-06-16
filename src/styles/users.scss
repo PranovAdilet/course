@@ -25,7 +25,8 @@
 .CreateUser__btns{
   margin-top: 25px;
   display: flex;
-  column-gap: 15px;
+  column-gap:405px;
+
   &-btn{
     padding: 10px 18px;
     border-radius: 5px;
@@ -39,5 +40,14 @@
   &-text{
     font-family: 'Roboto',sans-serif;
     color: #14B855;
+  }
+  &-left{
+    display: flex;
+    column-gap: 15px;
+  }
+  &-right{
+
+    display: flex;
+    column-gap: 10px;
   }
 }

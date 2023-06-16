@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {GrEdit} from "react-icons/gr";
 import {MdOutlineCancelPresentation} from "react-icons/md";
 import {useNavigate} from "react-router-dom";
 
 const User = () => {
+    const [typeGroups, setTypeGroups] = useState('all')
+
     const navigate = useNavigate()
     return (
         <section className='groups'>
@@ -15,15 +17,17 @@ const User = () => {
 
                 <div className='groups__row'>
                     <div className="groups__menu">
-                        <button className='groups__btn active'>Все
-                            <span className='groups__btn-count'>8</span>
-                        </button>
-                        <button className='groups__btn'>Активные
-                            <span className='groups__btn-count'>5</span>
-                        </button>
-                        <button className='groups__btn'>Архив
-                            <span className='groups__btn-count'>3</span>
-                        </button>
+                        <div className="groups__menu">
+                            <button onClick={() => setTypeGroups("all")} className={`groups__btn${typeGroups === "all" ? ` active` : ""}`}>Все
+                                <span className='groups__btn-count'>7</span>
+                            </button>
+                            <button onClick={() => setTypeGroups("active")} className={`groups__btn${typeGroups === "active" ? ` active` : ""}`}>Активные
+                                <span className='groups__btn-count'>5</span>
+                            </button>
+                            <button onClick={() => setTypeGroups("archive")} className={`groups__btn${typeGroups === "archive" ? ` active` : ""}`}>Архив
+                                <span className='groups__btn-count'>3</span>
+                            </button>
+                        </div>
                     </div>
                     <button onClick={() => navigate('/user/create') } type='button' className="groups__create">Добавить пользователя</button>
                 </div>

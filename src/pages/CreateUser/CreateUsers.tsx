@@ -1,9 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {MdOutlineLogout} from "react-icons/md";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {IShippingFields} from "../../interface/app.interface";
+import {log} from "util";
 
 
 const CreateUsers = () => {
+
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+        reset
+
+
+    } = useForm<IShippingFields>()
+
+    const onSubmit:SubmitHandler<IShippingFields> = data => {
+        console.log(`Your name ${data.name}`)
+        console.log(`Your name ${data.email}`)
+        console.log(data)
+        reset()
+    }
+    const [typeGroups, setTypeGroups] = useState('all')
 
     const navigate = useNavigate()
 
@@ -35,27 +55,109 @@ const CreateUsers = () => {
                 </header>
 
                 <div className="CreateUser__btns">
-                    <button className='CreateUser__btns-btn' type='button'>Информация</button>
-                    <button className='CreateUser__btns-btn' type='button'>История платежей</button>
-                    <div className='CreateUser__btns-circle'>
-                        <svg  width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="0.5" width="17" height="17" rx="8.5" fill="#14B855" stroke="#E5E5E5"/>
-                        </svg>
-                        <p className='CreateUser__btns-text'>Активен</p>
+                   <div className='CreateUser__btns-left'>
+                       <button onClick={() => setTypeGroups("all")} className={`groups__btn${typeGroups === "all" ? ` active` : ""}`}>Информация
+
+                       </button>
+                       <button onClick={() => setTypeGroups("active")} className={`groups__btn${typeGroups === "active" ? ` active` : ""}`}>История платежей
+
+                       </button>
+                       <div className='CreateUser__btns-circle'>
+                           <svg  width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                               <rect x="0.5" y="0.5" width="17" height="17" rx="8.5" fill="#14B855" stroke="#E5E5E5"/>
+                           </svg>
+                           <p className='CreateUser__btns-text'>Активен</p>
+                       </div>
+                   </div>
+
+                    <div className='CreateUser__btns-right'>
+                        <Link to={"/remindpassword"} className='groups__btn'>Сменить пароль</Link>
+                        <button className='groupsCreate__create'>Удалить</button>
                     </div>
 
 
                 </div>
-                <form className='groupsCreate__form' action="">
-                    <label className='groupsCreate__label'>
-                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
-                    </label>
 
-                    <label className='groupsCreate__label'>
-                        <input className='groupsCreate__select ' placeholder='Добавить участников' type="text"/>
-                    </label>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <input {...register('name',{
+                            required: 'Name is require field',
+                        })}
+                               type="text"
+                               placeholder='Name'
+                        />
+                        {errors?.name && (<div style={{color: 'red'}}>{errors.name.message}</div>)}
 
-                    <button className='groupsCreate__create'>Создать группу</button>
+                        <input {...register('email',{
+                            required: 'Email is require field',
+                            pattern: {
+                                value:  /^[^ ]+@[^ ]+\.[a-z]{2,5}$/,
+                                message: 'Please enter valid email',
+                            },
+                        })}
+                               type="text"
+                               placeholder='Email'
+                        />
+                        {errors?.email && (<div style={{color: 'red'}}>{errors.email.message}</div>)}
+
+                    </div>
+
+                    <div>
+
+                        <input {...register('phone',{
+                            required: 'Phone is require field',
+                            pattern: {
+                                value: /^\+996\d{9}$/,
+                                message: 'Please enter valid number',
+                            },
+                        })}
+                               type="text"
+                               placeholder='Phone'
+                        />
+                        {errors?.phone && (<div style={{color: 'red'}}>{errors.phone.message}</div>)}
+
+                        <input {...register('passport',{
+                            required: 'Passport is require field',
+                            // pattern: {
+                            //     value: /1/,
+                            //     message: 'Please enter valid ',
+                            // },
+                        })}
+                               type="text"
+                               placeholder='Passport'
+                        />
+                        {errors?.passport && (<div style={{color: 'red'}}>{errors.passport.message}</div>)}
+
+                        <input {...register('city',{
+                            required: 'City is require field',
+                            // pattern: {
+                            //     value: /1/,
+                            //     message: 'Please enter valid ',
+                            // },
+                        })}
+                               type="text"
+                               placeholder='City'
+                        />
+                        {errors?.city && (<div style={{color: 'red'}}>{errors.city.message}</div>)}
+
+
+                        <input {...register('city',{
+                            required: 'City is require field',
+                            // pattern: {
+                            //     value: /1/,
+                            //     message: 'Please enter valid ',
+                            // },
+                        })}
+                               type="text"
+                               placeholder='City'
+                        />
+                        {errors?.city && (<div style={{color: 'red'}}>{errors.city.message}</div>)}
+
+                    </div>
+
+                    <div>
+                        <button>Submit</button>
+                    </div>
                 </form>
             </div>
         </section>
