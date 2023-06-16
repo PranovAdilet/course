@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {MdOutlineLogout} from "react-icons/md";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {IShippingFields} from "../../interface/app.interface";
 import {log} from "util";
+=======
+import React, {FormEvent} from 'react';
+import {Link, useNavigate} from "react-router-dom";
+import {MdOutlineLogout} from "react-icons/md";
+import axios from "axios";
+import { GeneratePassword } from "js-generate-password";
+>>>>>>> 7d7ab9241a119140a6362c198d3406ba8ac4a536
 
 
 const CreateUsers = () => {
@@ -26,6 +34,28 @@ const CreateUsers = () => {
     const [typeGroups, setTypeGroups] = useState('all')
 
     const navigate = useNavigate()
+    const onSubmit = () => {
+
+        // const password = GeneratePassword({
+        //     length: 8,
+        //
+        // });
+        // console.log(password);
+        // axios.post("http://localhost:8080/register",{
+        //     "name": "Nurs",
+        //     "surname": "safaf",
+        //     "passport": "",
+        //     "email": "jhjksdgjnsd0@gmail.com",
+        //     "phone" : "",
+        //     "role" : "",
+        //     "status" : "",
+        //     "groups": [],
+        //     "payments" : [],
+        //     "password": `${password}`
+        // })
+        //     .then((data) => console.log(data))
+        //     .catch((err) => console.log(err))
+    }
 
     return (
         <section className='CreateUser'>
@@ -77,6 +107,13 @@ const CreateUsers = () => {
 
 
                 </div>
+<<<<<<< HEAD
+=======
+                <div className='groupsCreate__form'  >
+                    <label className='groupsCreate__label'>
+                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
+                    </label>
+>>>>>>> 7d7ab9241a119140a6362c198d3406ba8ac4a536
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
@@ -88,6 +125,7 @@ const CreateUsers = () => {
                         />
                         {errors?.name && (<div style={{color: 'red'}}>{errors.name.message}</div>)}
 
+<<<<<<< HEAD
                         <input {...register('email',{
                             required: 'Email is require field',
                             pattern: {
@@ -159,6 +197,10 @@ const CreateUsers = () => {
                         <button>Submit</button>
                     </div>
                 </form>
+=======
+                    <button type="button" onClick={onSubmit} className='groupsCreate__create'>Создать группу</button>
+                </div>
+>>>>>>> 7d7ab9241a119140a6362c198d3406ba8ac4a536
             </div>
         </section>
     );

@@ -19,7 +19,7 @@ const Groups = () => {
 
     const dispatch = useAppDispatch()
     useEffect(() => {
-        dispatch(getAllCourse())
+        dispatch(getAllCourse(limit))
     },[limit])
 
 

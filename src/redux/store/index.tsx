@@ -1,12 +1,9 @@
 import {configureStore, combineReducers} from "@reduxjs/toolkit";
-import {coursesSlice} from "./reducers/courses/courses";
-import exp from "constants";
-
-
+import coursesSlice from "./reducers/courses/courses";
 
 const store = configureStore({
     reducer:{
-        coursesSlice: coursesSlice.reducer
+        coursesSlice: coursesSlice
     }
 })
 
