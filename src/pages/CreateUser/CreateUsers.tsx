@@ -1,17 +1,11 @@
-<<<<<<< HEAD
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {MdOutlineLogout} from "react-icons/md";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {IShippingFields} from "../../interface/app.interface";
-import {log} from "util";
-=======
-import React, {FormEvent} from 'react';
-import {Link, useNavigate} from "react-router-dom";
-import {MdOutlineLogout} from "react-icons/md";
-import axios from "axios";
 import { GeneratePassword } from "js-generate-password";
->>>>>>> 7d7ab9241a119140a6362c198d3406ba8ac4a536
+import axios from "axios";
+import {log} from "util";
 
 
 const CreateUsers = () => {
@@ -26,36 +20,47 @@ const CreateUsers = () => {
     } = useForm<IShippingFields>()
 
     const onSubmit:SubmitHandler<IShippingFields> = data => {
-        console.log(`Your name ${data.name}`)
-        console.log(`Your name ${data.email}`)
-        console.log(data)
+
+        const password = GeneratePassword({
+                length: 8,
+
+            });
+        const newUser = {...data, password, payments: [], groups: []}
+
+        axios.post("http://localhost:8080/register",newUser)
+                .then((data) => {
+
+                    console.log(password)
+                })
+                .catch((err) => console.log(err))
+
         reset()
     }
     const [typeGroups, setTypeGroups] = useState('all')
 
     const navigate = useNavigate()
-    const onSubmit = () => {
-
-        // const password = GeneratePassword({
-        //     length: 8,
-        //
-        // });
-        // console.log(password);
-        // axios.post("http://localhost:8080/register",{
-        //     "name": "Nurs",
-        //     "surname": "safaf",
-        //     "passport": "",
-        //     "email": "jhjksdgjnsd0@gmail.com",
-        //     "phone" : "",
-        //     "role" : "",
-        //     "status" : "",
-        //     "groups": [],
-        //     "payments" : [],
-        //     "password": `${password}`
-        // })
-        //     .then((data) => console.log(data))
-        //     .catch((err) => console.log(err))
-    }
+    // const onSubmit = () => {
+    //
+    //     // const password = GeneratePassword({
+    //     //     length: 8,
+    //     //
+    //     // });
+    //     // console.log(password);
+    //     // axios.post("http://localhost:8080/register",{
+    //     //     "name": "Nurs",
+    //     //     "surname": "safaf",
+    //     //     "passport": "",
+    //     //     "email": "jhjksdgjnsd0@gmail.com",
+    //     //     "phone" : "",
+    //     //     "role" : "",
+    //     //     "status" : "",
+    //     //     "groups": [],
+    //     //     "payments" : [],
+    //     //     "password": `${password}`
+    //     // })
+    //     //     .then((data) => console.log(data))
+    //     //     .catch((err) => console.log(err))
+    // }
 
     return (
         <section className='CreateUser'>
@@ -107,15 +112,9 @@ const CreateUsers = () => {
 
 
                 </div>
-<<<<<<< HEAD
-=======
-                <div className='groupsCreate__form'  >
-                    <label className='groupsCreate__label'>
-                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
-                    </label>
->>>>>>> 7d7ab9241a119140a6362c198d3406ba8ac4a536
 
-                <form onSubmit={handleSubmit(onSubmit)}>
+
+                    <form className='groupsCreate__form' onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <input {...register('name',{
                             required: 'Name is require field',
@@ -125,8 +124,17 @@ const CreateUsers = () => {
                         />
                         {errors?.name && (<div style={{color: 'red'}}>{errors.name.message}</div>)}
 
-<<<<<<< HEAD
-                        <input {...register('email',{
+                            <input {...register('surname',{
+                                required: 'SurnameName is require field',
+                            })}
+                                   type="text"
+                                   placeholder='Surname'
+                            />
+                            {errors?.name && (<div style={{color: 'red'}}>{errors.name.message}</div>)}
+
+
+
+                            <input {...register('email',{
                             required: 'Email is require field',
                             pattern: {
                                 value:  /^[^ ]+@[^ ]+\.[a-z]{2,5}$/,
@@ -179,28 +187,32 @@ const CreateUsers = () => {
                         {errors?.city && (<div style={{color: 'red'}}>{errors.city.message}</div>)}
 
 
-                        <input {...register('city',{
-                            required: 'City is require field',
-                            // pattern: {
-                            //     value: /1/,
-                            //     message: 'Please enter valid ',
-                            // },
-                        })}
-                               type="text"
-                               placeholder='City'
-                        />
-                        {errors?.city && (<div style={{color: 'red'}}>{errors.city.message}</div>)}
 
+                    </div>
+
+
+                    <div>
+                        <select defaultValue={'Offline'} {...register('status')} name="" id="">
+                            <option  value="Offline">Offline</option>
+                            <option value="Online">Online</option>
+                        </select>
+
+                        <select defaultValue='Student'  {...register('role')} name="" id="">
+                            <option   value="Student">Student</option>
+                            <option value="Mentor">Mentor</option>
+                            <option value="Support">Support</option>
+                            <option value="Administration">Administration</option>
+                        </select>
                     </div>
 
                     <div>
-                        <button>Submit</button>
+                        <button className='groupsCreate__create'>Submit</button>
                     </div>
                 </form>
-=======
-                    <button type="button" onClick={onSubmit} className='groupsCreate__create'>Создать группу</button>
-                </div>
->>>>>>> 7d7ab9241a119140a6362c198d3406ba8ac4a536
+
+
+
+
             </div>
         </section>
     );

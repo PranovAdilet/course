@@ -35,8 +35,10 @@ export const createGroup = createAsyncThunk(
         }catch (err) {
             if (err instanceof Error){
                 console.log(err.message)
+                return err.message
             }else {
                 console.log('Unexpected error', err)
+                return 'Unexpected error'
             }
         }
     }

@@ -1,10 +1,30 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {ILoginFields} from "../../interface/app.interface";
+import axios from "axios";
+import {log} from "util";
+import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";
+import {loginUser} from "../../redux/store/reducers/user/userSlice";
 
 const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+        reset
+
+
+    } = useForm<ILoginFields>({mode: "onBlur"})
+    const navigate = useNavigate()
+    const dispatch = useAppDispatch()
+    const onSubmit:SubmitHandler<ILoginFields> = (data) => {
+        dispatch(loginUser(data)).then(() => navigate("/"))
+
+    }
     return (
         <section className='login'>
-            <form action="" className='login__form'>
+            <form onSubmit={handleSubmit(onSubmit)} action=""  className='login__form'>
                 <h2 className='login__title'>Вход в аккаунт</h2>
                 <label  className='login__label'>
 
@@ -16,7 +36,15 @@ const Login = () => {
 
                     </span>
 
-                    <input placeholder='Введите ваш Email' className='login__field' type="email"/>
+                    <input {...register('email',{
+                        required: 'Email is require field',
+                        pattern: {
+                            value:  /^[^ ]+@[^ ]+\.[a-z]{2,5}$/,
+                            message: 'Please enter valid email',
+                        },
+                    })} placeholder='Введите ваш Email' className='login__field' type="email"/>
+                    {errors?.email && (<div style={{color: 'red'}}>{errors.email.message}</div>)}
+
                 </label>
                 <label  className='login__label'>
 
@@ -29,11 +57,11 @@ const Login = () => {
 
                     </span>
 
-                    <input placeholder='Введите ваш пароль' className='login__field' type="password"/>
+                    <input {...register("password")} placeholder='Введите ваш пароль' className='login__field' type="password"/>
                 </label>
                 <div className='login__bot'>
                     <Link to={"/remindpassword"} className='login__forgot'>Забыли пароль?</Link>
-                    <button className='login__btn'>Войти</button>
+                    <button className='login__btn' type={"submit"}>Войти</button>
                 </div>
 
             </form>

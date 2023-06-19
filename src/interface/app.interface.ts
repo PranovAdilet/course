@@ -4,5 +4,15 @@ export interface IShippingFields {
     phone:number
     passport:string | number
     city:string
-    role: string
+    role: string,
+    surname: string,
+    status: string
+}
+export interface ILoginFields{
+    password: string
+    email: string
+}
+export interface IUser extends IShippingFields{
+    groups: []
+    payments: []
 }

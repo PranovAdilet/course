@@ -25,6 +25,62 @@
       "groups": [],
       "payments": [],
       "id": 2
+    },
+    {
+      "email": "maxbirimkulov@mail.ru",
+      "password": "$2a$10$kO1n7a6gISDoG15jpo6CVeJ/EHS03M24iLi2Vxm5tfKEk8V98SWsi",
+      "name": "muslim",
+      "surname": "mageza",
+      "phone": "+996123123123",
+      "passport": "123213123123",
+      "city": "bish",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 3
+    },
+    {
+      "email": "sadasd@mail.ru",
+      "password": "$2a$10$hkHWGEDsKo54DymEsccez.lQVTOkSK6pPueN9vccuKBbGXmHfuLiO",
+      "name": "asdsad",
+      "surname": "asdasd",
+      "phone": "+996505020599",
+      "passport": "adsasdasd",
+      "city": "asdsada",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 4
+    },
+    {
+      "email": "nurs@mail.ru",
+      "password": "$2a$10$KSGC334V2oeBICsNCIyV1.Gd8obUEQQBGtHuyjxN9kwBN/4q8q7ka",
+      "name": "Nursultan",
+      "surname": "Mustafaev",
+      "phone": "+996505555555",
+      "passport": "213123123",
+      "city": "Bish",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 5
+    },
+    {
+      "email": "adi@mail.ru",
+      "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
+      "name": "adilet",
+      "surname": "pranov",
+      "phone": "+996543123123",
+      "passport": "12312312123",
+      "city": "bish",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 6
     }
   ],
   "groups": [

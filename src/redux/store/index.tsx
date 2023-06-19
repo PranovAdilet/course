@@ -1,9 +1,10 @@
-import {configureStore, combineReducers} from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import coursesSlice from "./reducers/courses/courses";
-
+import userSlice from "./reducers/user/userSlice";
 const store = configureStore({
     reducer:{
-        coursesSlice: coursesSlice
+        coursesSlice: coursesSlice,
+        userSlice: userSlice
     }
 })
 
