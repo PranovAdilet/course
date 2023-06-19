@@ -2,11 +2,15 @@ import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";
 import {createGroup} from "../../redux/store/reducers/courses/courses";
+import {useSelector} from "react-redux";
 
 
 const GroupsCreate = () => {
 
+
+
     const navigate = useNavigate()
+
 
     const [title, setTitle] = useState<string>('')
 
@@ -25,14 +29,24 @@ const GroupsCreate = () => {
                 </div>
                 <form onSubmit={(e) => {
                     e.preventDefault()
-                        dispatch(createGroup(title))
+                       dispatch(createGroup(title))
                          setTitle('')
                 }} className='groupsCreate__form' action="">
                     <label className='groupsCreate__label'>
                         <input value={title} onChange={(e) => {
                             setTitle(e.target.value)
-                        }} className='groupsCreate__input' placeholder='Название группы' type="text"/>
+                        }} min="4" className='groupsCreate__input' placeholder='Название группы' type="text"/>
                     </label>
+                    <label className='groupsCreate__label'>
+                        <input className='groupsCreate__input' placeholder='Выбрать куратора' type="text"/>
+                    </label>
+                    <label className='groupsCreate__label'>
+                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
+                    </label>
+                    <label className='groupsCreate__label'>
+                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
+                    </label>
+
 
                     <label className='groupsCreate__label'>
                         <input className='groupsCreate__select ' placeholder='Добавить участников' type="text"/>

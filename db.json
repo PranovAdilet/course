@@ -77,6 +77,11 @@
       "id": 10,
       "title": "SQL",
       "students": ""
+    },
+    {
+      "id": "920a3f23-b72c-4e9d-8c05-8063294dc295",
+      "title": "React",
+      "students": ""
     }
   ]
 }
