@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {GrEdit} from 'react-icons/gr'
 import {MdOutlineCancelPresentation} from 'react-icons/md'
 import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 import {selectCourse} from "../../redux/reduxSelectors/reduxSelectors";
 import {getAllCourse, limitCourse} from "../../redux/store/reducers/courses/courses";
 import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";

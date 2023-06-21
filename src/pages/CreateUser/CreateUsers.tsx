@@ -5,7 +5,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {IShippingFields} from "../../interface/app.interface";
 import { GeneratePassword } from "js-generate-password";
 import axios from "axios";
-import {log} from "util";
+
 
 
 const CreateUsers = () => {
@@ -29,7 +29,6 @@ const CreateUsers = () => {
 
         axios.post("http://localhost:8080/register",newUser)
                 .then((data) => {
-
                     console.log(password)
                 })
                 .catch((err) => console.log(err))
@@ -39,28 +38,6 @@ const CreateUsers = () => {
     const [typeGroups, setTypeGroups] = useState('all')
 
     const navigate = useNavigate()
-    // const onSubmit = () => {
-    //
-    //     // const password = GeneratePassword({
-    //     //     length: 8,
-    //     //
-    //     // });
-    //     // console.log(password);
-    //     // axios.post("http://localhost:8080/register",{
-    //     //     "name": "Nurs",
-    //     //     "surname": "safaf",
-    //     //     "passport": "",
-    //     //     "email": "jhjksdgjnsd0@gmail.com",
-    //     //     "phone" : "",
-    //     //     "role" : "",
-    //     //     "status" : "",
-    //     //     "groups": [],
-    //     //     "payments" : [],
-    //     //     "password": `${password}`
-    //     // })
-    //     //     .then((data) => console.log(data))
-    //     //     .catch((err) => console.log(err))
-    // }
 
     return (
         <section className='CreateUser'>
