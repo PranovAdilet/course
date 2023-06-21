@@ -4,17 +4,25 @@ import {MdOutlineCancelPresentation} from 'react-icons/md'
 import {useNavigate} from "react-router-dom";
 import { useSelector} from "react-redux";
 import {selectCourse} from "../../redux/reduxSelectors/reduxSelectors";
-import {getAllCourse, limitCourse} from "../../redux/store/reducers/courses/courses";
+import {getAllCourse, limitCourse, filterArchive, filterActive, filterAll, limitCourseHide} from "../../redux/store/reducers/courses/courses";
 import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";
+import axios from "axios";
 
 
 const Groups = () => {
 
-    const [typeGroups, setTypeGroups] = useState('all')
+    const [groupLenght, setGroupLenght] = useState([])
 
-    const {data, limit} = useSelector(selectCourse)
+    const {data, limit, filter} = useSelector(selectCourse)
 
     const navigate = useNavigate()
+
+   useEffect(() => {
+       axios(` http://localhost:8080/groups`)
+           .then(response => setGroupLenght(response.data))
+           .catch(err => console.log(err))
+   }, [])
+
 
 
     const dispatch = useAppDispatch()
@@ -35,13 +43,13 @@ const Groups = () => {
 
                 <div className='groups__row'>
                     <div className="groups__menu">
-                        <button onClick={() => setTypeGroups("all")} className={`groups__btn${typeGroups === "all" ? ` active` : ""}`}>Все
-                            <span className='groups__btn-count'>{data.length}</span>
+                        <button onClick={() => dispatch(filterAll("all"))} className={`groups__btn${filter === "all" ? ` active` : ""}`}>Все
+                            <span className='groups__btn-count'>{groupLenght.length}</span>
                         </button>
-                        <button onClick={() => setTypeGroups("active")} className={`groups__btn${typeGroups === "active" ? ` active` : ""}`}>Активные
+                        <button onClick={() => dispatch(filterActive("active"))} className={`groups__btn${filter === "active" ? ` active` : ""}`}>Активные
                             <span className='groups__btn-count'>5</span>
                         </button>
-                        <button onClick={() => setTypeGroups("archive")} className={`groups__btn${typeGroups === "archive" ? ` active` : ""}`}>Архив
+                        <button onClick={() => dispatch(filterArchive("archive"))} className={`groups__btn${filter === "archive" ? ` active` : ""}`}>Архив
                             <span className='groups__btn-count'>3</span>
                         </button>
                     </div>
@@ -70,11 +78,17 @@ const Groups = () => {
                 </div>
 
                 <div className='groups__bottom'>
-                    <span onClick={() => {
-                        dispatch(limitCourse(1))
-                    }} className='groups__bottom-yet'>
+                    {
+                        limit >= groupLenght.length ?  <span onClick={() => {
+                            dispatch(limitCourse(4))
+                        }} className='groups__bottom-yet'>
+                        Скрыть
+                    </span> :  <span onClick={() => {
+                            dispatch(limitCourse(groupLenght.length))
+                        }} className='groups__bottom-yet'>
                         Показать еще
                     </span>
+                    }
                     <div className='groups__bottom-right'>
                         <span className='groups__prev'>
                             <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">

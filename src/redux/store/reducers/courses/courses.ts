@@ -79,7 +79,20 @@ export const coursesSlice = createSlice({
     initialState,
     reducers:{
         limitCourse: (state, action) => {
-            state.limit = 8
+            state.limit = state.limit <= action.payload ? action.payload : state.limit > action.payload ? state.limit = 4 : 0
+
+        },
+        limitCourseHide: (state, action) => {
+            state.limit = 4
+        },
+        filterAll: (state, action) => {
+          state.filter = "all"
+        },
+        filterActive: (state, action) => {
+            state.filter = "active"
+        },
+        filterArchive: (state, action) => {
+            state.filter = "archiev"
         }
     },
     extraReducers: (builder) => {
@@ -115,6 +128,6 @@ export const coursesSlice = createSlice({
 
 
 
-export const {limitCourse} = coursesSlice.actions
+export const {limitCourse, filterActive, filterArchive, filterAll, limitCourseHide} = coursesSlice.actions
 
 export default coursesSlice.reducer

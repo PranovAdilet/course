@@ -7,10 +7,11 @@ import Layout from "./Layout/Layout";
 import GroupsCreate from "./pages/Groups/GroupsCreate";
 import Login from "./pages/Login/Login";
 import RemindPassword from "./pages/RemindPassword/RemindPassword";
+import CreateUsers from "./pages/CreateUser/CreateUsers";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 import User from "./pages/Users/User";
-import CreateUsers from "./pages/CreateUser/CreateUsers";
+
 
 import FulfilledRemind from "./pages/RemindPassword/FulfilledRemind";
 
