@@ -1,20 +1,38 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";
 import {createGroup} from "../../redux/store/reducers/courses/courses";
 import {useSelector} from "react-redux";
+import {
+    selectUsers,
+    selectUsersMentors,
+    selectUsersStudents,
+    selectUsersSupports
+} from "../../redux/reduxSelectors/reduxSelectors";
+import {getAllUsers} from "../../redux/store/reducers/users/usersSlice";
+import SelectGroup from "./SelectGroup";
+import Select, {GroupBase} from 'react-select';
 
+
+
+type Option = { value: string | number | undefined; label: string  };
 
 const GroupsCreate = () => {
 
 
+    const [title, setTitle] = useState<string>('')
+    const mentors = useSelector(selectUsersMentors)
+    const supports = useSelector(selectUsersSupports)
+    const students: Option[] = useSelector(selectUsersStudents)
 
     const navigate = useNavigate()
-
-
-    const [title, setTitle] = useState<string>('')
-
     const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(getAllUsers())
+    }, [])
+
+    const [selectedOption, setSelectedOption] = useState<GroupBase<(string | number | undefined)[]> | null>(null );
 
     return (
         <section className='groupsCreate'>
@@ -38,18 +56,18 @@ const GroupsCreate = () => {
                         }} min="4" className='groupsCreate__input' placeholder='Название группы' type="text"/>
                     </label>
                     <label className='groupsCreate__label'>
-                        <input className='groupsCreate__input' placeholder='Выбрать куратора' type="text"/>
+                        <SelectGroup options={mentors}/>
                     </label>
                     <label className='groupsCreate__label'>
-                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
-                    </label>
-                    <label className='groupsCreate__label'>
-                        <input className='groupsCreate__input' placeholder='Название группы' type="text"/>
+                        <SelectGroup options={supports}/>
                     </label>
 
-
                     <label className='groupsCreate__label'>
-                        <input className='groupsCreate__select ' placeholder='Добавить участников' type="text"/>
+                        <Select
+                            defaultValue={selectedOption}
+                            onChange={setSelectedOption}
+                            options={students}
+                        />
                     </label>
 
                     <button type="submit" className='groupsCreate__create'>Создать группу</button>

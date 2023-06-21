@@ -1,4 +1,5 @@
 export interface IShippingFields {
+    id?:number | string
     email:string
     name: string
     phone:number

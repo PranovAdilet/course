@@ -1,32 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "asdasd",
-      "surname": "",
-      "passport": "",
-      "email": "",
-      "phone": "",
-      "role": "",
-      "status": "",
-      "groups": [],
-      "payments": [],
-      "password": ""
-    },
-    {
-      "email": "jhjksdgjnsd@gmail.com",
-      "password": "$2a$10$UpNFXuCMnodbiOMAa5i7SuuRJQkQpyiNtrsmEquntjrDNZVBPaY52",
-      "name": "Nurs",
-      "surname": "safaf",
-      "passport": "",
-      "phone": "",
-      "role": "",
-      "status": "",
-      "groups": [],
-      "payments": [],
-      "id": 2
-    },
-    {
       "email": "maxbirimkulov@mail.ru",
       "password": "$2a$10$kO1n7a6gISDoG15jpo6CVeJ/EHS03M24iLi2Vxm5tfKEk8V98SWsi",
       "name": "muslim",
@@ -81,9 +55,88 @@
       "payments": [],
       "groups": [],
       "id": 6
+    },
+    {
+      "email": "nurs@mail.ru",
+      "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
+      "name": "adilet",
+      "surname": "pranov",
+      "phone": "+996543123123",
+      "passport": "12312312123",
+      "city": "bish",
+      "status": "Offline",
+      "role": "Mentor",
+      "payments": [],
+      "groups": [],
+      "id": 7
+    },
+    {
+      "email": "Muslim@mail.ru",
+      "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
+      "name": "adilet",
+      "surname": "pranov",
+      "phone": "+996543123123",
+      "passport": "12312312123",
+      "city": "bish",
+      "status": "Offline",
+      "role": "Mentor",
+      "payments": [],
+      "groups": [],
+      "id": 8
+    },
+    {
+      "email": "Max@mail.ru",
+      "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
+      "name": "adilet",
+      "surname": "pranov",
+      "phone": "+996543123123",
+      "passport": "12312312123",
+      "city": "bish",
+      "status": "Offline",
+      "role": "Mentor",
+      "payments": [],
+      "groups": [],
+      "id": 9
+    },
+    {
+      "email": "Adilet@mail.ru",
+      "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
+      "name": "adilet",
+      "surname": "pranov",
+      "phone": "+996543123123",
+      "passport": "12312312123",
+      "city": "bish",
+      "status": "Offline",
+      "role": "Support",
+      "payments": [],
+      "groups": [],
+      "id": 10
+    },
+    {
+      "email": "Adilet123@mail.ru",
+      "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
+      "name": "adilet",
+      "surname": "pranov",
+      "phone": "+996543123123",
+      "passport": "12312312123",
+      "city": "bish",
+      "status": "Offline",
+      "role": "Support",
+      "payments": [],
+      "groups": [],
+      "id": 11
     }
+
   ],
   "groups": [
+    {
+      "id": 20,
+      "title": "TS",
+      "mentor": "userID",
+      "support": "userID",
+      "students": ["userID", "userID"],
+      "start" : ""
+    },
     {
       "id": 1,
       "title": "TypeScript",
