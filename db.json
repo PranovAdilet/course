@@ -59,7 +59,7 @@
     {
       "email": "nurs@mail.ru",
       "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
-      "name": "adilet",
+      "name": "Kanat",
       "surname": "pranov",
       "phone": "+996543123123",
       "passport": "12312312123",
@@ -73,7 +73,7 @@
     {
       "email": "Muslim@mail.ru",
       "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
-      "name": "adilet",
+      "name": "Marat",
       "surname": "pranov",
       "phone": "+996543123123",
       "passport": "12312312123",
@@ -87,7 +87,7 @@
     {
       "email": "Max@mail.ru",
       "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
-      "name": "adilet",
+      "name": "Talant",
       "surname": "pranov",
       "phone": "+996543123123",
       "passport": "12312312123",
@@ -101,7 +101,7 @@
     {
       "email": "Adilet@mail.ru",
       "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
-      "name": "adilet",
+      "name": "Misha",
       "surname": "pranov",
       "phone": "+996543123123",
       "passport": "12312312123",
@@ -115,7 +115,7 @@
     {
       "email": "Adilet123@mail.ru",
       "password": "$2a$10$nGVQsKRzPHushTzxt2YamOc4GLmZ.KKb84PatCt53sBTLzNfNelYe",
-      "name": "adilet",
+      "name": "Sasha",
       "surname": "pranov",
       "phone": "+996543123123",
       "passport": "12312312123",
@@ -125,8 +125,21 @@
       "payments": [],
       "groups": [],
       "id": 11
+    },
+    {
+      "email": "Nas@mail.ru",
+      "password": "$2a$10$8s9z2fIU..iq1cxh7CNqaOyaAPLxlVSMLrqkvdjVLt40Wj0GbjSPu",
+      "name": "Nastya",
+      "surname": "Kazanskaya",
+      "phone": "+996773505320",
+      "passport": "12332321",
+      "city": "Bishkek",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 12
     }
-
   ],
   "groups": [
     {
@@ -134,8 +147,11 @@
       "title": "TS",
       "mentor": "userID",
       "support": "userID",
-      "students": ["userID", "userID"],
-      "start" : ""
+      "students": [
+        "userID",
+        "userID"
+      ],
+      "start": ""
     },
     {
       "id": 1,
@@ -191,6 +207,71 @@
       "id": "920a3f23-b72c-4e9d-8c05-8063294dc295",
       "title": "React",
       "students": ""
+    },
+    {
+      "mentor": "8",
+      "support": "11",
+      "personName": [
+        3,
+        6,
+        5
+      ],
+      "id": 21
+    },
+    {
+      "mentor": "7",
+      "support": "10",
+      "name": "",
+      "personName": [
+        3,
+        6,
+        5
+      ],
+      "id": 22
+    },
+    {
+      "name": "Frontend TS + JS",
+      "mentor": "7",
+      "support": "10",
+      "personName": [
+        3,
+        6,
+        5
+      ],
+      "id": 23
+    },
+    {
+      "name": "Frontend TS + JS",
+      "mentor": "7",
+      "support": "10",
+      "personName": [
+        3,
+        6,
+        5
+      ],
+      "id": 24
+    },
+    {
+      "name": "Frontend TS + JS",
+      "mentor": "7",
+      "support": "10",
+      "personName": [
+        3,
+        6,
+        5
+      ],
+      "id": 25
+    },
+    {
+      "name": "Frontend TS + JS",
+      "mentor": "7",
+      "support": "10",
+      "personName": [
+        3,
+        6,
+        5
+      ],
+      "id": 26
     }
   ]
 }

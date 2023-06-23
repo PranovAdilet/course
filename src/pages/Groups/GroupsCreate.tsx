@@ -10,20 +10,45 @@ import {
     selectUsersSupports
 } from "../../redux/reduxSelectors/reduxSelectors";
 import {getAllUsers} from "../../redux/store/reducers/users/usersSlice";
-import SelectGroup from "./SelectGroup";
-import Select, {GroupBase} from 'react-select';
+import MultipleSelectChip from "./MultySelect";
+import {useForm, SubmitHandler} from "react-hook-form";
+import axios from "axios";
 
-
-
-type Option = { value: string | number | undefined; label: string  };
 
 const GroupsCreate = () => {
 
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+        reset
+    } = useForm()
 
-    const [title, setTitle] = useState<string>('')
+
+
+
+
+    const [personName, setPersonName] = React.useState<string[]>([]);
+
+    const onSubmit: SubmitHandler<any> = (data) => {
+        const newGroup = {...data, personName }
+
+        axios.post("http://localhost:8080/groups", newGroup)
+            .then((data) => {
+                setPersonName([])
+                alert("Вы успешно добавили группу!")
+
+
+            })
+            .catch((err) => alert(err))
+
+        reset()
+    }
+
     const mentors = useSelector(selectUsersMentors)
     const supports = useSelector(selectUsersSupports)
-    const students: Option[] = useSelector(selectUsersStudents)
+
 
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
@@ -32,7 +57,6 @@ const GroupsCreate = () => {
         dispatch(getAllUsers())
     }, [])
 
-    const [selectedOption, setSelectedOption] = useState<GroupBase<(string | number | undefined)[]> | null>(null );
 
     return (
         <section className='groupsCreate'>
@@ -45,29 +69,31 @@ const GroupsCreate = () => {
                     </span>
                     <span onClick={() => navigate(-1)}>Создание группы</span>
                 </div>
-                <form onSubmit={(e) => {
-                    e.preventDefault()
-                       dispatch(createGroup(title))
-                         setTitle('')
-                }} className='groupsCreate__form' action="">
+                <form onSubmit={handleSubmit(onSubmit)} className='groupsCreate__form' action="">
                     <label className='groupsCreate__label'>
-                        <input value={title} onChange={(e) => {
-                            setTitle(e.target.value)
-                        }} min="4" className='groupsCreate__input' placeholder='Название группы' type="text"/>
+                        <input {...register("name")} className='groupsCreate__input' placeholder='Название группы' type="text"/>
                     </label>
                     <label className='groupsCreate__label'>
-                        <SelectGroup options={mentors}/>
+                        <select {...register("mentor")}>
+                            {
+                                mentors.map(item => (
+                                    <option key={item.id} value={item.id}>{item.name}</option>
+                                ))
+                            }
+                        </select>
                     </label>
                     <label className='groupsCreate__label'>
-                        <SelectGroup options={supports}/>
+                        <select {...register("support")}>
+                            {
+                                supports.map(item => (
+                                    <option key={item.id} value={item.id}>{item.name}</option>
+                                ))
+                            }
+                        </select>
                     </label>
 
                     <label className='groupsCreate__label'>
-                        <Select
-                            defaultValue={selectedOption}
-                            onChange={setSelectedOption}
-                            options={students}
-                        />
+                        <MultipleSelectChip personName={personName} setPersonName={setPersonName}/>
                     </label>
 
                     <button type="submit" className='groupsCreate__create'>Создать группу</button>
