@@ -11,9 +11,13 @@ import axios from "axios";
 
 const Groups = () => {
 
+    const [myGroups, setMyGroups] = useState(false)
+
     const [groupLenght, setGroupLenght] = useState([])
 
-    const {data, limit, filter} = useSelector(selectCourse)
+
+
+
 
     const navigate = useNavigate()
 
@@ -21,7 +25,10 @@ const Groups = () => {
        axios(` http://localhost:8080/groups`)
            .then(response => setGroupLenght(response.data))
            .catch(err => console.log(err))
+
+
    }, [])
+    const {data, limit, filter} = useSelector(selectCourse)
 
 
 
@@ -29,6 +36,12 @@ const Groups = () => {
     useEffect(() => {
         dispatch(getAllCourse(limit))
     },[limit])
+
+    const getMyGroupsHandler = () => {
+        data.map((item) => {
+
+        })
+    }
 
 
 
@@ -38,7 +51,9 @@ const Groups = () => {
             <div className="container">
                 <div className='groups__top'>
                     <p className='groups__top-text'>Показывать только мои группы</p>
-                    <input className='groups__top-check' type="checkbox"/>
+                    <input onChange={() => {
+                        setMyGroups(prevState => prevState = !prevState)
+                    }} className='groups__top-check' type="checkbox"/>
                 </div>
 
                 <div className='groups__row'>
@@ -60,12 +75,12 @@ const Groups = () => {
                     {
                         data.map((item) => (
                            <React.Fragment key={item.id}>
-                               <div className="groups__item">
+                               <div  className="groups__item">
                                    <div className='groups__item-left'>
                             <span className='groups__item-edit'>
                                 <GrEdit/>
                             </span>
-                                       <h2 className='groups__item-title'>{item.title}</h2>
+                                       <h2 onClick={() => navigate(`/groups/${item.id}`)} className='groups__item-title'>{item.name}</h2>
                                    </div>
                                    <span  className='groups__item-delete'>
                             <MdOutlineCancelPresentation/>

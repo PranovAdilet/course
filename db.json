@@ -139,94 +139,98 @@
       "payments": [],
       "groups": [],
       "id": 12
+    },
+    {
+      "email": "Malik@mail.ru",
+      "password": "$2a$10$J2NPhmEXQpOAK8CPdk.kceMYTFWLQvGzhLmUaKIKJZtVOQM9QqC7i",
+      "name": "Malik",
+      "surname": "Malikovich",
+      "phone": "+996333667788",
+      "passport": "21",
+      "city": "Bishkek",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 13
+    },
+    {
+      "email": "Pranov123@mail.ru",
+      "password": "$2a$10$vSL/fTUkVV.xu.BYAU5Jfuh11HOUL.JoDeGcLSvbs9yo8b0aMa/J2",
+      "name": "Adilet",
+      "surname": "Пранов",
+      "phone": "+996773505320",
+      "passport": "212",
+      "city": "Бишкек",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 14
+    },
+    {
+      "email": "Kanat@mail.ru",
+      "password": "$2a$10$S3OQcNgpf7JLTkqECHlKduzIPnkzGUYFfB.uZQZKa9c0THLCHdOf6",
+      "name": "Adilet",
+      "surname": "adsssa",
+      "phone": "+996333333333",
+      "passport": "21",
+      "city": "12",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 15
+    },
+    {
+      "email": "Pranov@mail.ru",
+      "password": "$2a$10$jHabGzm.HzP.Br2FRRHSNuu1Hw7M9uSWYAWWyQ4gzAWP3lvvd.gmW",
+      "name": "Adilet",
+      "surname": "adsssa",
+      "phone": "+996773505320",
+      "passport": "21",
+      "city": "Бишкек",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 16
+    },
+    {
+      "email": "pranov@mail.ru",
+      "password": "$2a$10$5RZ34emTUuhpwtUYfwEYte8LVJ5S8NWqAbcUQ.tfMOtIbb6lk7Amq",
+      "name": "Adilet",
+      "surname": "saddsa",
+      "phone": "+996773373737",
+      "passport": "123",
+      "city": "Бишкек",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 17
+    },
+    {
+      "email": "pranov@mail.ru",
+      "password": "$2a$10$5RZ34emTUuhpwtUYfwEYte8LVJ5S8NWqAbcUQ.tfMOtIbb6lk7Amq",
+      "name": "Adilet",
+      "surname": "saddsa",
+      "phone": "+996773373737",
+      "passport": "123",
+      "city": "Бишкек",
+      "status": "Offline",
+      "role": "Student",
+      "payments": [],
+      "groups": [],
+      "id": 23
     }
   ],
   "groups": [
     {
-      "id": 20,
-      "title": "TS",
-      "mentor": "userID",
-      "support": "userID",
-      "students": [
-        "userID",
-        "userID"
-      ],
-      "start": ""
-    },
-    {
-      "id": 1,
-      "title": "TypeScript",
-      "students": ""
-    },
-    {
-      "id": 2,
-      "title": "JavaScript",
-      "students": ""
-    },
-    {
-      "id": 3,
-      "title": "HTML",
-      "students": ""
-    },
-    {
-      "id": 4,
-      "title": "CSS",
-      "students": ""
-    },
-    {
-      "id": 5,
-      "title": "PYTON",
-      "students": ""
-    },
-    {
-      "id": 6,
-      "title": "JAVA",
-      "students": ""
-    },
-    {
-      "id": 7,
-      "title": "C++",
-      "students": ""
-    },
-    {
-      "id": 8,
-      "title": "С#",
-      "students": ""
-    },
-    {
-      "id": 9,
-      "title": "PHP",
-      "students": ""
-    },
-    {
-      "id": 10,
-      "title": "SQL",
-      "students": ""
-    },
-    {
-      "id": "920a3f23-b72c-4e9d-8c05-8063294dc295",
-      "title": "React",
-      "students": ""
-    },
-    {
-      "mentor": "8",
-      "support": "11",
-      "personName": [
-        3,
-        6,
-        5
-      ],
-      "id": 21
-    },
-    {
       "mentor": "7",
       "support": "10",
-      "name": "",
-      "personName": [
-        3,
-        6,
-        5
-      ],
+      "name": "Frontend TS",
+      "personName": [],
       "id": 22
     },
     {
@@ -235,8 +239,9 @@
       "support": "10",
       "personName": [
         3,
-        6,
-        5
+        12,
+        5,
+        6
       ],
       "id": 23
     },
@@ -246,8 +251,9 @@
       "support": "10",
       "personName": [
         3,
-        6,
-        5
+        12,
+        5,
+        6
       ],
       "id": 24
     },
@@ -257,8 +263,9 @@
       "support": "10",
       "personName": [
         3,
-        6,
-        5
+        12,
+        5,
+        6
       ],
       "id": 25
     },
@@ -272,6 +279,29 @@
         5
       ],
       "id": 26
+    },
+    {
+      "name": "HTML",
+      "mentor": "8",
+      "support": "11",
+      "personName": [
+        6,
+        12
+      ],
+      "id": 27
+    },
+    {
+      "name": "Adilet",
+      "mentor": "8",
+      "support": "11",
+      "personName": [
+        12,
+        5,
+        3
+      ],
+      "id": 28,
+      "videos": [],
+      "homeWorks": []
     }
   ]
 }

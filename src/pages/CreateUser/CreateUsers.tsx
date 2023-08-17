@@ -5,7 +5,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {IShippingFields} from "../../interface/app.interface";
 import { GeneratePassword } from "js-generate-password";
 import axios from "axios";
-
+import {IGroup} from "../../interface/app.interface";
 
 
 const CreateUsers = () => {
@@ -19,16 +19,19 @@ const CreateUsers = () => {
 
     } = useForm<IShippingFields>()
 
+
     const onSubmit:SubmitHandler<IShippingFields> = data => {
 
         const password = GeneratePassword({
                 length: 8,
 
             });
-        const newUser = {...data, password, payments: [], groups: []}
+        const newUser: IGroup = {...data, password, payments: [], groups: []}
+
 
         axios.post("http://localhost:8080/register",newUser)
                 .then((data) => {
+                    localStorage.setItem("user", JSON.stringify(newUser))
                     console.log(password)
                 })
                 .catch((err) => console.log(err))

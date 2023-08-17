@@ -1,6 +1,7 @@
 .groups{
   padding: 40px 0;
   background: #FBFBFB;
+
   &__top{
     display: flex;
     column-gap: 10px;
@@ -59,6 +60,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &-title2{
+      min-width: 195px;
+    }
+    &-title{
+      cursor: pointer;
+    }
     &-left{
       display: flex;
       column-gap: 15px;

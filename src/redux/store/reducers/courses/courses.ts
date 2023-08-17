@@ -1,12 +1,15 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import axios from "axios";
-import {v4 as uuidv4} from 'uuid'
+
 
 
 export interface Course {
     id: string | number
-    title : string,
-    students: string
+    name : string,
+    students: string,
+    mentor: string,
+    support: string,
+    personName: []
 }
 export interface CoursesAsync {
     status: "loading"| "error" | "done" | null
@@ -16,33 +19,7 @@ export interface CoursesAsync {
     filter: string
 }
 
-export const createGroup = createAsyncThunk(
-    'coursesSlice/createGroup',
-    async (title:string , rejectedWithValue) => {
-        try {
-            let newGroup: Course = {
-                id: uuidv4(),
-                title: title,
-                students: ""
-            }
 
-            const response = await axios.post(` http://localhost:8080/groups`, newGroup)
-
-            if (response.statusText !== "Created"){
-                throw new Error('Ошибка при запросе данных')
-            }
-            return response.data
-        }catch (err) {
-            if (err instanceof Error){
-                console.log(err.message)
-                return err.message
-            }else {
-                console.log('Unexpected error', err)
-                return 'Unexpected error'
-            }
-        }
-    }
-)
 
 export const getAllCourse = createAsyncThunk<Course[], number>(
     'coursesSlice/getAllCourse',
@@ -80,7 +57,6 @@ export const coursesSlice = createSlice({
     reducers:{
         limitCourse: (state, action) => {
             state.limit = state.limit <= action.payload ? action.payload : state.limit > action.payload ? state.limit = 4 : 0
-
         },
         limitCourseHide: (state, action) => {
             state.limit = 4
@@ -109,19 +85,7 @@ export const coursesSlice = createSlice({
             state.error = null
             state.data = payload
         })
-        builder.addCase(createGroup.pending, (state) => {
-            state.status = "loading"
-            state.error = null
-        })
-        builder.addCase(createGroup.rejected, (state, {payload}) => {
-            state.status = "error"
-            state.error = `${payload}`
-        })
-        builder.addCase(createGroup.fulfilled, (state, action) => {
-            state.status = "done"
-            state.error = null
-            state.data = [...state.data, action.payload]
-        })
+
     }
 })
 

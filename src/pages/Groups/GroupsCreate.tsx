@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {useAppDispatch} from "../../redux/store/reducers/hooks/reduxHooks";
-import {createGroup} from "../../redux/store/reducers/courses/courses";
 import {useSelector} from "react-redux";
 import {
     selectUsers,
@@ -13,6 +12,7 @@ import {getAllUsers} from "../../redux/store/reducers/users/usersSlice";
 import MultipleSelectChip from "./MultySelect";
 import {useForm, SubmitHandler} from "react-hook-form";
 import axios from "axios";
+import {ICourseGroup} from "../../interface/app.interface";
 
 
 const GroupsCreate = () => {
@@ -23,7 +23,7 @@ const GroupsCreate = () => {
         watch,
         formState: { errors },
         reset
-    } = useForm()
+    } = useForm<ICourseGroup>()
 
 
 
@@ -31,15 +31,13 @@ const GroupsCreate = () => {
 
     const [personName, setPersonName] = React.useState<string[]>([]);
 
-    const onSubmit: SubmitHandler<any> = (data) => {
+    const onSubmit: SubmitHandler<ICourseGroup> = (data) => {
         const newGroup = {...data, personName }
 
         axios.post("http://localhost:8080/groups", newGroup)
             .then((data) => {
                 setPersonName([])
                 alert("Вы успешно добавили группу!")
-
-
             })
             .catch((err) => alert(err))
 

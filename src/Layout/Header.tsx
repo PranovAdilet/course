@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import {MdOutlineLogout} from 'react-icons/md'
+
+
 
 const Header = () => {
 
@@ -15,7 +17,7 @@ const Header = () => {
                         <Link className='header__link' to='/user'>Пользователи</Link>
                     </div>
                     <div className='header__right'>
-                        <Link className='header__acc' to='/groups'>maxbirimkulov@mail.ru</Link>
+                        <Link className='header__acc' to='/groups'>123</Link>
                         <span className='header__logout' onClick={() => {
                             navigate('/login')
                         }}>

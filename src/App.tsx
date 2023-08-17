@@ -14,6 +14,10 @@ import User from "./pages/Users/User";
 
 
 import FulfilledRemind from "./pages/RemindPassword/FulfilledRemind";
+import Group from "./pages/Group/Group";
+import Profile from "./pages/Profile/Profile";
+
+
 
 
 function App() {
@@ -23,9 +27,10 @@ function App() {
             <Route path='/' element={<Layout/>}>
                 <Route path='' element={<Home/>}/>
                 <Route path='user' element={<User/>}/>
-
                 <Route path='groups' element={<Groups/>}/>
                 <Route path='groups/create' element={<GroupsCreate/>}/>
+                <Route path='groups/:id' element={<Group/>}/>
+                <Route path='user/:id' element={<Profile/>}/>
             </Route>
             <Route path='login' element={<Login/>}/>
             <Route path='resetpassword' element={<ResetPassword/>}/>

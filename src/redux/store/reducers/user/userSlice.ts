@@ -11,6 +11,10 @@ interface IUserSlice {
 }
 
 
+
+
+
+
 export const loginUser = createAsyncThunk(
     "user/loginUser",
     async (data:ILoginFields,{rejectWithValue} ) => {
@@ -61,6 +65,7 @@ const userSlice = createSlice({
                 state.user = action.payload
                 state.status = "isConnect"
             })
+
     }
 })
 
